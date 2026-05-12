@@ -605,7 +605,7 @@
         Lulusan SMK Teknik Komputer dan Jaringan (2026) dari SMK Daarul Uluum. Berpengalaman sebagai IT Support sekolah dan Operasional di Surya Abadi Computer. Ahli dalam perakitan PC, instalasi sistem operasi Windows, serta troubleshooting hardware dan software.
       </p>
       <div class="hero-actions reveal reveal-delay-3">
-        <a href="CV-Arkan-Zahran-Ramadhan-1.pdf" download="CV-Arkan-Zahran-Ramadhan.pdf" class="btn btn-primary">Download CV</a>
+        <button class="btn btn-primary" onclick="downloadCV()">Download CV</button>
         <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
       </div>
       <div class="hero-stats reveal reveal-delay-4">
@@ -1236,6 +1236,25 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') tutupLightbox();
   });
+
+  // ── DOWNLOAD CV ──
+  function downloadCV() {
+    const files = [
+      { url: 'CV Arkan Zahran Ramadhan-1.pdf',  nama: 'CV Arkan Zahran-Ramadhan.pdf' },
+      { url: 'CV ATS ARKAN1.pdf', nama: 'CV ATS ARKAN.pdf' }
+    ];
+
+    files.forEach((file, index) => {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = file.url;
+        a.download = file.nama;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }, index * 500);
+    });
+  }
  
 </script>
 </body>
